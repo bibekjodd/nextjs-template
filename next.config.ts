@@ -1,5 +1,9 @@
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 import type { NextConfig } from 'next';
 
+if (!process.env.VERCEL) {
+  initOpenNextCloudflareForDev();
+}
 const nextConfig: NextConfig = {
   reactCompiler: true,
   eslint: { ignoreDuringBuilds: true },
